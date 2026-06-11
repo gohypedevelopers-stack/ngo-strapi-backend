@@ -1,0 +1,128 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage",
+    "description": "Editable content for the home page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroSubtitle": {
+      "type": "string"
+    },
+    "heroTitle": {
+      "type": "string"
+    },
+    "heroDescription": {
+      "type": "text"
+    },
+    "heroPrimaryBtnText": {
+      "type": "string"
+    },
+    "heroPrimaryBtnLink": {
+      "type": "string"
+    },
+    "heroSecondaryBtnText": {
+      "type": "string"
+    },
+    "heroSecondaryBtnLink": {
+      "type": "string"
+    },
+    "heroBannerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroScubaDiverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroManufacturingImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "crisisLabel": {
+      "type": "string"
+    },
+    "crisisTitle": {
+      "type": "string"
+    },
+    "crisisBody": {
+      "type": "text"
+    },
+    "crisisQuote": {
+      "type": "text"
+    },
+    "crisisImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "crisisSecondaryBody": {
+      "type": "text"
+    },
+    "solutionLabel": {
+      "type": "string"
+    },
+    "solutionTitle": {
+      "type": "string"
+    },
+    "solutionBody": {
+      "type": "text"
+    },
+    "solutionImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "solutionProg1Emoji": {
+      "type": "string"
+    },
+    "solutionProg1Title": {
+      "type": "string"
+    },
+    "solutionProg1Body": {
+      "type": "text"
+    },
+    "solutionProg2Emoji": {
+      "type": "string"
+    },
+    "solutionProg2Title": {
+      "type": "string"
+    },
+    "solutionProg2Body": {
+      "type": "text"
+    },
+    "solutionProg3Emoji": {
+      "type": "string"
+    },
+    "solutionProg3Title": {
+      "type": "string"
+    },
+    "solutionProg3Body": {
+      "type": "text"
+    }
+  }
+}
