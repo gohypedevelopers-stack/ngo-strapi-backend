@@ -677,6 +677,64 @@ export interface ApiOurWorkPageOurWorkPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiOurWorkSubPageOurWorkSubPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'our_work_sub_pages';
+  info: {
+    description: "Sub-pages for the Our Work section (Habitat & Loko I'a, Bio-Cleaner, Community Science)";
+    displayName: 'Our Work Sub Page';
+    pluralName: 'our-work-sub-pages';
+    singularName: 'our-work-sub-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    activity1Body: Schema.Attribute.Text;
+    activity1Title: Schema.Attribute.String;
+    activity2Body: Schema.Attribute.Text;
+    activity2Title: Schema.Attribute.String;
+    activity3Body: Schema.Attribute.Text;
+    activity3Title: Schema.Attribute.String;
+    activity4Body: Schema.Attribute.Text;
+    activity4Title: Schema.Attribute.String;
+    activity5Body: Schema.Attribute.Text;
+    activity5Title: Schema.Attribute.String;
+    activity6Body: Schema.Attribute.Text;
+    activity6Title: Schema.Attribute.String;
+    card1Body: Schema.Attribute.Text;
+    card1Title: Schema.Attribute.String;
+    card2Body: Schema.Attribute.Text;
+    card2Title: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-work-sub-page.our-work-sub-page'
+    > &
+      Schema.Attribute.Private;
+    metricBgImage: Schema.Attribute.Media<'images'>;
+    metricDesc: Schema.Attribute.String;
+    metricDetail: Schema.Attribute.Text;
+    metricLabel: Schema.Attribute.String;
+    metricSuffix: Schema.Attribute.String;
+    metricValue: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1193,6 +1251,7 @@ declare module '@strapi/strapi' {
       'api::crisis-sub-page.crisis-sub-page': ApiCrisisSubPageCrisisSubPage;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::our-work-page.our-work-page': ApiOurWorkPageOurWorkPage;
+      'api::our-work-sub-page.our-work-sub-page': ApiOurWorkSubPageOurWorkSubPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

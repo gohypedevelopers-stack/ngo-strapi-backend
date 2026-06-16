@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "our_work_sub_pages",
+  "info": {
+    "singularName": "our-work-sub-page",
+    "pluralName": "our-work-sub-pages",
+    "displayName": "Our Work Sub Page",
+    "description": "Sub-pages for the Our Work section (Habitat & Loko I'a, Bio-Cleaner, Community Science)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "card1Title": {
+      "type": "string"
+    },
+    "card1Body": {
+      "type": "text"
+    },
+    "card2Title": {
+      "type": "string"
+    },
+    "card2Body": {
+      "type": "text"
+    },
+    "metricLabel": {
+      "type": "string"
+    },
+    "metricValue": {
+      "type": "integer"
+    },
+    "metricSuffix": {
+      "type": "string"
+    },
+    "metricDesc": {
+      "type": "string"
+    },
+    "metricDetail": {
+      "type": "text"
+    },
+    "metricBgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "activity1Title": {
+      "type": "string"
+    },
+    "activity1Body": {
+      "type": "text"
+    },
+    "activity2Title": {
+      "type": "string"
+    },
+    "activity2Body": {
+      "type": "text"
+    },
+    "activity3Title": {
+      "type": "string"
+    },
+    "activity3Body": {
+      "type": "text"
+    },
+    "activity4Title": {
+      "type": "string"
+    },
+    "activity4Body": {
+      "type": "text"
+    },
+    "activity5Title": {
+      "type": "string"
+    },
+    "activity5Body": {
+      "type": "text"
+    },
+    "activity6Title": {
+      "type": "string"
+    },
+    "activity6Body": {
+      "type": "text"
+    }
+  }
+}
