@@ -1,0 +1,66 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_work_pages",
+  "info": {
+    "singularName": "our-work-page",
+    "pluralName": "our-work-pages",
+    "displayName": "Our Work Page",
+    "description": "Editable content for the Our Work page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroEyebrow": {
+      "type": "string"
+    },
+    "heroTitle": {
+      "type": "string"
+    },
+    "heroDescription": {
+      "type": "text"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "prog1Eyebrow": {
+      "type": "string"
+    },
+    "prog1Title": {
+      "type": "string"
+    },
+    "prog1Description": {
+      "type": "text"
+    },
+    "prog2Eyebrow": {
+      "type": "string"
+    },
+    "prog2Title": {
+      "type": "string"
+    },
+    "prog2Description": {
+      "type": "text"
+    },
+    "prog3Eyebrow": {
+      "type": "string"
+    },
+    "prog3Title": {
+      "type": "string"
+    },
+    "prog3Description": {
+      "type": "text"
+    },
+    "trophicTitle": {
+      "type": "string"
+    },
+    "trophicDescription": {
+      "type": "text"
+    }
+  }
+}

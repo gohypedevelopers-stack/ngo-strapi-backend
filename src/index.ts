@@ -18,6 +18,32 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: any }) {
     try {
+      // Seed Our Work Page if empty
+      const ourWorkPage = await strapi.documents('api::our-work-page.our-work-page').findFirst();
+      if (!ourWorkPage) {
+        console.log('Seeding Our Work Page content...');
+        await strapi.documents('api::our-work-page.our-work-page').create({
+          data: {
+            heroEyebrow: 'Our Core Philosophy',
+            heroTitle: "WE DON'T JUST RESTORE CORAL — WE RESTORE THE ENTIRE FOOD WEB.",
+            heroDescription: 'Hui Nehu implements three tightly integrated programs that directly target the full ecological chain, from mountain watersheds to the open sea.',
+            prog1Eyebrow: 'Program 1',
+            prog1Title: 'Habitat & Loko Iʻa Restoration',
+            prog1Description: 'Restoring estuarine habitats, coral reefs, and traditional fishponds (loko iʻa). Propagating thermal-tolerant coral and native limu using traditional cultivation and modern asexual propagation methods.',
+            prog2Eyebrow: 'Program 2',
+            prog2Title: 'Bio-Cleaner & Pollution Response',
+            prog2Description: 'Addressing localized pollution at the source by deploying advanced septic systems and removing 10+ tons of marine debris in Year 1.',
+            prog3Eyebrow: 'Program 3',
+            prog3Title: 'Nā Kiaʻi Kai Community Science',
+            prog3Description: 'Training local community volunteers to conduct professional fish surveys, monitor limu growth, and execute rigorous water quality testing.',
+            trophicTitle: 'The Trophic Cascade',
+            trophicDescription: 'Restoring foundational marine habitats creates a positive trophic cascade that naturally revitalizes the broader coastal ecosystem. By protecting the nehu at the base and removing toxic land runoff at the source, we trigger a self-reinforcing recovery wave for ahi, seabirds, coral, and communities.',
+            publishedAt: new Date(),
+          },
+          status: 'published',
+        });
+      }
+
       // Seed Crisis Page if empty
       const crisisPage = await strapi.documents('api::crisis-page.crisis-page').findFirst();
       if (!crisisPage) {
