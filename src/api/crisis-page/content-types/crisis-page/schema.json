@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "crisis_pages",
+  "info": {
+    "singularName": "crisis-page",
+    "pluralName": "crisis-pages",
+    "displayName": "Crisis Page",
+    "description": "Editable content for the crisis landing page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

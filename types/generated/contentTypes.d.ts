@@ -477,6 +477,91 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCrisisPageCrisisPage extends Struct.SingleTypeSchema {
+  collectionName: 'crisis_pages';
+  info: {
+    description: 'Editable content for the crisis landing page';
+    displayName: 'Crisis Page';
+    pluralName: 'crisis-pages';
+    singularName: 'crisis-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::crisis-page.crisis-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCrisisSubPageCrisisSubPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'crisis_sub_pages';
+  info: {
+    description: 'Sub-pages for the crisis section (The Nehu, Cesspool Problem, Fragmented Response)';
+    displayName: 'Crisis Sub Page';
+    pluralName: 'crisis-sub-pages';
+    singularName: 'crisis-sub-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    card1Body: Schema.Attribute.Text;
+    card1Title: Schema.Attribute.String;
+    card2Body: Schema.Attribute.Text;
+    card2Title: Schema.Attribute.String;
+    card3Body: Schema.Attribute.Text;
+    card3Title: Schema.Attribute.String;
+    card4Body: Schema.Attribute.Text;
+    card4Title: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::crisis-sub-page.crisis-sub-page'
+    > &
+      Schema.Attribute.Private;
+    proverb: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    stat1Label: Schema.Attribute.String;
+    stat1Value: Schema.Attribute.String;
+    stat2Label: Schema.Attribute.String;
+    stat2Value: Schema.Attribute.String;
+    stat3Label: Schema.Attribute.String;
+    stat3Value: Schema.Attribute.String;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepages';
   info: {
@@ -1046,6 +1131,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::crisis-page.crisis-page': ApiCrisisPageCrisisPage;
+      'api::crisis-sub-page.crisis-sub-page': ApiCrisisSubPageCrisisSubPage;
       'api::homepage.homepage': ApiHomepageHomepage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
