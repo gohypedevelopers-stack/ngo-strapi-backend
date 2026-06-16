@@ -502,6 +502,21 @@ export interface ApiCrisisPageCrisisPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    sec1Description: Schema.Attribute.Text;
+    sec1Eyebrow: Schema.Attribute.String;
+    sec1Image: Schema.Attribute.Media<'images'>;
+    sec1Subtitle: Schema.Attribute.String;
+    sec1Title: Schema.Attribute.String;
+    sec2Description: Schema.Attribute.Text;
+    sec2Eyebrow: Schema.Attribute.String;
+    sec2Image: Schema.Attribute.Media<'images'>;
+    sec2Subtitle: Schema.Attribute.String;
+    sec2Title: Schema.Attribute.String;
+    sec3Description: Schema.Attribute.Text;
+    sec3Eyebrow: Schema.Attribute.String;
+    sec3Image: Schema.Attribute.Media<'images'>;
+    sec3Subtitle: Schema.Attribute.String;
+    sec3Title: Schema.Attribute.String;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -613,6 +628,49 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     solutionProg3Emoji: Schema.Attribute.String;
     solutionProg3Title: Schema.Attribute.String;
     solutionTitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurWorkPageOurWorkPage extends Struct.SingleTypeSchema {
+  collectionName: 'our_work_pages';
+  info: {
+    description: 'Editable content for the Our Work page';
+    displayName: 'Our Work Page';
+    pluralName: 'our-work-pages';
+    singularName: 'our-work-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroDescription: Schema.Attribute.Text;
+    heroEyebrow: Schema.Attribute.String;
+    heroImage: Schema.Attribute.Media<'images'>;
+    heroTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-work-page.our-work-page'
+    > &
+      Schema.Attribute.Private;
+    prog1Description: Schema.Attribute.Text;
+    prog1Eyebrow: Schema.Attribute.String;
+    prog1Title: Schema.Attribute.String;
+    prog2Description: Schema.Attribute.Text;
+    prog2Eyebrow: Schema.Attribute.String;
+    prog2Title: Schema.Attribute.String;
+    prog3Description: Schema.Attribute.Text;
+    prog3Eyebrow: Schema.Attribute.String;
+    prog3Title: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    trophicDescription: Schema.Attribute.Text;
+    trophicTitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1134,6 +1192,7 @@ declare module '@strapi/strapi' {
       'api::crisis-page.crisis-page': ApiCrisisPageCrisisPage;
       'api::crisis-sub-page.crisis-sub-page': ApiCrisisSubPageCrisisSubPage;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::our-work-page.our-work-page': ApiOurWorkPageOurWorkPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
