@@ -44,79 +44,106 @@ export default {
         });
       }
 
-      // Seed Our Work Sub Pages if empty
-      const ourWorkSubPages = await strapi.documents('api::our-work-sub-page.our-work-sub-page').findMany();
-      if (!ourWorkSubPages || ourWorkSubPages.length === 0) {
-        console.log('Seeding Our Work Sub Pages...');
-        
-        // 1. Habitat & Loko I'a
-        await strapi.documents('api::our-work-sub-page.our-work-sub-page').create({
-          data: {
-            slug: 'habitat-loko-ia',
-            eyebrow: 'Program 1: Habitat & Loko Iʻa',
-            title: 'We Don’t Just Restore Coral — We Restore the Entire Food Web',
-            description: 'Restoring estuarine habitats, coral reefs, and traditional fishponds (loko iʻa). Propagating thermal-tolerant coral and native limu using traditional cultivation and modern asexual propagation methods.',
-            card1Title: 'Keystone Focus',
-            card1Body: 'Restoring foundational habitats triggers a trophic cascade that revitalizes the entire coastal ecosystem.',
-            card2Title: 'Ahupuaʻa Link',
-            card2Body: 'Ancient Hawaiians built 300+ fishponds (loko iʻa) and managed freshwater flow to protect downstream coral nurseries. We revive this 1,000-year-old wisdom.',
-            metricLabel: 'Target Metric',
-            metricValue: 70,
-            metricSuffix: '%',
-            metricDesc: 'Coral Survival Rate',
-            metricDetail: 'Target for pilot sites — integrating Indigenous Ecological Knowledge with modern marine science to achieve unprecedented restoration outcomes.',
-            publishedAt: new Date(),
-          },
-          status: 'published',
+      // Seed Our Work Sub Pages if empty or missing individually
+      const subPageSlugs = ['habitat-loko-ia', 'bio-cleaner', 'community-science', 'methodology'];
+      for (const slug of subPageSlugs) {
+        const existing = await strapi.documents('api::our-work-sub-page.our-work-sub-page').findFirst({
+          filters: { slug }
         });
-
-        // 2. Bio-Cleaner
-        await strapi.documents('api::our-work-sub-page.our-work-sub-page').create({
-          data: {
-            slug: 'bio-cleaner',
-            eyebrow: 'Program 2: Bio-Cleaner & Pollution Response',
-            title: 'Bio Cleaner Septic Jockey: An Act of Mālama ʼAīna',
-            description: 'Deploying advanced Bio Cleaner septic systems to replace cesspools. Removing marine debris from Maui’s coastline. Responding to acute pollution events.',
-            card1Title: 'The Bigger Picture',
-            card1Body: 'Bio Cleaner Septic Jockey is the commercial arm that directly funds the nonprofit’s conservation mission while addressing the cesspool crisis at scale.',
-            metricLabel: 'Target Metric',
-            metricValue: 10,
-            metricSuffix: '+',
-            metricDesc: 'Tons of Marine Debris Removed',
-            metricDetail: 'Year 1 Target — deploying Bio Cleaner septic systems and coordinating coastline debris removal across Maui County.',
-            publishedAt: new Date(),
-          },
-          status: 'published',
-        });
-
-        // 3. Community Science
-        await strapi.documents('api::our-work-sub-page.our-work-sub-page').create({
-          data: {
-            slug: 'community-science',
-            eyebrow: 'Program 3: Nā Kiaʻi Kai Community Science',
-            title: 'Training Hawaiʻi’s Next Generation of Ocean Guardians',
-            description: 'Training local volunteers in fish surveys, limu monitoring, and water quality testing to produce publication-quality datasets.',
-            activity1Title: 'Fish surveys',
-            activity1Body: 'Standardized visual censuses of nearshore reef fish species diversity and biomass tracking.',
-            activity2Title: 'Limu monitoring',
-            activity2Body: 'Tracking native and invasive seaweed distribution across shallow reef flats.',
-            activity3Title: 'Water quality testing',
-            activity3Body: 'Conducting regular chemical assays to monitor nutrient loading, pathogens, and runoff cycles.',
-            activity4Title: 'Marine debris removal',
-            activity4Body: 'Removing ghost nets, microplastics, and derelict gear from marine nurseries.',
-            activity5Title: 'Coral outplanting',
-            activity5Body: 'Assisting in asexual propagation and transplanting of thermal-tolerant coral colonies.',
-            activity6Title: 'Youth ocean science education',
-            activity6Body: 'Empowering future ocean guardians through field excursions and school partnerships.',
-            metricLabel: 'Science & Policy',
-            metricValue: 500,
-            metricSuffix: '+',
-            metricDesc: 'Water Samples Analyzed',
-            metricDetail: 'Standardized community data collection informing state and federal policy. Publication-quality scientific output from volunteer-led monitoring.',
-            publishedAt: new Date(),
-          },
-          status: 'published',
-        });
+        if (!existing) {
+          console.log(`Seeding Our Work Sub Page: ${slug}...`);
+          if (slug === 'habitat-loko-ia') {
+            await strapi.documents('api::our-work-sub-page.our-work-sub-page').create({
+              data: {
+                slug: 'habitat-loko-ia',
+                eyebrow: 'Program 1: Habitat & Loko Iʻa',
+                title: 'We Don’t Just Restore Coral — We Restore the Entire Food Web',
+                description: 'Restoring estuarine habitats, coral reefs, and traditional fishponds (loko iʻa). Propagating thermal-tolerant coral and native limu using traditional cultivation and modern asexual propagation methods.',
+                card1Title: 'Keystone Focus',
+                card1Body: 'Restoring foundational habitats triggers a trophic cascade that revitalizes the entire coastal ecosystem.',
+                card2Title: 'Ahupuaʻa Link',
+                card2Body: 'Ancient Hawaiians built 300+ fishponds (loko iʻa) and managed freshwater flow to protect downstream coral nurseries. We revive this 1,000-year-old wisdom.',
+                metricLabel: 'Target Metric',
+                metricValue: 70,
+                metricSuffix: '%',
+                metricDesc: 'Coral Survival Rate',
+                metricDetail: 'Target for pilot sites — integrating Indigenous Ecological Knowledge with modern marine science to achieve unprecedented restoration outcomes.',
+                publishedAt: new Date(),
+              },
+              status: 'published',
+            });
+          } else if (slug === 'bio-cleaner') {
+            await strapi.documents('api::our-work-sub-page.our-work-sub-page').create({
+              data: {
+                slug: 'bio-cleaner',
+                eyebrow: 'Program 2: Bio-Cleaner & Pollution Response',
+                title: 'Bio Cleaner Septic Jockey: An Act of Mālama ʼAīna',
+                description: 'Deploying advanced Bio Cleaner septic systems to replace cesspools. Removing marine debris from Maui’s coastline. Responding to acute pollution events.',
+                card1Title: 'The Bigger Picture',
+                card1Body: 'Bio Cleaner Septic Jockey is the commercial arm that directly funds the nonprofit’s conservation mission while addressing the cesspool crisis at scale.',
+                metricLabel: 'Target Metric',
+                metricValue: 10,
+                metricSuffix: '+',
+                metricDesc: 'Tons of Marine Debris Removed',
+                metricDetail: 'Year 1 Target — deploying Bio Cleaner septic systems and coordinating coastline debris removal across Maui County.',
+                publishedAt: new Date(),
+              },
+              status: 'published',
+            });
+          } else if (slug === 'community-science') {
+            await strapi.documents('api::our-work-sub-page.our-work-sub-page').create({
+              data: {
+                slug: 'community-science',
+                eyebrow: 'Program 3: Nā Kiaʻi Kai Community Science',
+                title: 'Training Hawaiʻi’s Next Generation of Ocean Guardians',
+                description: 'Training local volunteers in fish surveys, limu monitoring, and water quality testing to produce publication-quality datasets.',
+                activity1Title: 'Fish surveys',
+                activity1Body: 'Standardized visual censuses of nearshore reef fish species diversity and biomass tracking.',
+                activity2Title: 'Limu monitoring',
+                activity2Body: 'Tracking native and invasive seaweed distribution across shallow reef flats.',
+                activity3Title: 'Water quality testing',
+                activity3Body: 'Conducting regular chemical assays to monitor nutrient loading, pathogens, and runoff cycles.',
+                activity4Title: 'Marine debris removal',
+                activity4Body: 'Removing ghost nets, microplastics, and derelict gear from marine nurseries.',
+                activity5Title: 'Coral outplanting',
+                activity5Body: 'Assisting in asexual propagation and transplanting of thermal-tolerant coral colonies.',
+                activity6Title: 'Youth ocean science education',
+                activity6Body: 'Empowering future ocean guardians through field excursions and school partnerships.',
+                metricLabel: 'Science & Policy',
+                metricValue: 500,
+                metricSuffix: '+',
+                metricDesc: 'Water Samples Analyzed',
+                metricDetail: 'Standardized community data collection informing state and federal policy. Publication-quality scientific output from volunteer-led monitoring.',
+                publishedAt: new Date(),
+              },
+              status: 'published',
+            });
+          } else if (slug === 'methodology') {
+            await strapi.documents('api::our-work-sub-page.our-work-sub-page').create({
+              data: {
+                slug: 'methodology',
+                eyebrow: 'Our Methodology — The science behind the work',
+                title: 'Indigenous Knowledge + Modern Science: The Most Effective Conservation',
+                description: 'The most resilient conservation integrates the deep observational knowledge of Indigenous Hawaiian practitioners with peer-reviewed marine biology.',
+                card1Title: 'The Ahupuaʻa Model',
+                card1Body: 'Traditional Hawaiian land system from mountain peak (mauka) to ocean (makai). Kānāwai — “the equal sharing of water” — was the source of all wealth. Hui Nehu makes this operational in the 21st century.',
+                activity1Title: 'Coral & Limu Propagation',
+                activity1Body: 'Combining traditional cultivation with modern asexual propagation methods to rebuild foundational nearshore habitats.',
+                activity2Title: 'Ahupuaʻa & Loko Iʻa Management',
+                activity2Body: 'Fostering holistic watershed protection alongside ancestral fishpond revival to balance coastal ecosystems.',
+                activity3Title: 'Citizen Science Rigor',
+                activity3Body: 'Translating standardized community observations and data logs into robust scientific datasets accepted by policy makers.',
+                metricLabel: 'Core Metric',
+                metricValue: 70,
+                metricSuffix: '%',
+                metricDesc: 'Coral Survival Rate',
+                metricDetail: 'Targeting 70% coral survival rate at pilot sites — above national average.',
+                publishedAt: new Date(),
+              },
+              status: 'published',
+            });
+          }
+        }
       }
 
       // Seed Crisis Page if empty
