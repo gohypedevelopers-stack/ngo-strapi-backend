@@ -165,30 +165,19 @@ export default {
             sec2Subtitle: '',
             sec2Description: 'Hawaiʻi has the most cesspools per capita of any state. Untreated human waste discharges into groundwater and flows directly into the ocean, destroying nearshore habitats. Act 125 (2017) mandates all 88,000 cesspools converted by 2050, requiring a 10x acceleration to convert 3,000+ per year instead of the current 300.',
             sec3Eyebrow: 'Section 3: Governance Gaps',
-            sec3Title: 'A Fragmented Response: Siloed & Underfunded',
+            sec3Title: 'Conservation in Hawaiʻi Is Fragmented, Underfunded, and Culturally Disconnected',
             sec3Subtitle: '',
             sec3Description: 'Traditional conservation efforts are currently isolated, underfunded, and fundamentally detached from local, Indigenous ecological practices, allowing critical structural gaps to persist. No single organization has ever attempted to address the full system. Until now.',
             publishedAt: new Date(),
           },
           status: 'published',
         });
-      } else if (!crisisPage.sec1Title) {
-        console.log('Updating Crisis Page with section content...');
+      } else {
+        console.log('Updating existing Crisis Page section titles to ensure consistency...');
         await strapi.documents('api::crisis-page.crisis-page').update({
           documentId: crisisPage.documentId,
           data: {
-            sec1Eyebrow: 'Section 1: Forage Base',
-            sec1Title: 'The Nehu: The Most Important Fish You’ve Never Heard Of',
-            sec1Subtitle: '',
-            sec1Description: 'Encrasicholina purpurea — a small, silver anchovy endemic exclusively to the Hawaiian Islands. The foundational forage fish of the Hawaiian marine food web. Lives only in semi-enclosed bays, making nehu populations extremely vulnerable to nearshore pollution.',
-            sec2Eyebrow: 'Section 2: Sewage & Reefs',
-            sec2Title: 'The Cesspool Crisis: The Hidden Killer',
-            sec2Subtitle: '',
-            sec2Description: 'Hawaiʻi has the most cesspools per capita of any state. Untreated human waste discharges into groundwater and flows directly into the ocean, destroying nearshore habitats. Act 125 (2017) mandates all 88,000 cesspools converted by 2050, requiring a 10x acceleration to convert 3,000+ per year instead of the current 300.',
-            sec3Eyebrow: 'Section 3: Governance Gaps',
-            sec3Title: 'A Fragmented Response: Siloed & Underfunded',
-            sec3Subtitle: '',
-            sec3Description: 'Traditional conservation efforts are currently isolated, underfunded, and fundamentally detached from local, Indigenous ecological practices, allowing critical structural gaps to persist. No single organization has ever attempted to address the full system. Until now.',
+            sec3Title: 'Conservation in Hawaiʻi Is Fragmented, Underfunded, and Culturally Disconnected',
           },
         });
       }
