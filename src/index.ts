@@ -246,26 +246,205 @@ export default {
         await strapi.documents('api::crisis-sub-page.crisis-sub-page').create({
           data: {
             slug: 'fragmented-response',
-            eyebrow: 'Section 3: Gaps in Conservation',
+            eyebrow: 'A Fragmented Response',
             title: 'Conservation in Hawaiʻi Is Fragmented, Underfunded, and Culturally Disconnected',
-            subtitle: 'Traditional conservation efforts are currently isolated and fundamentally detached from local, Indigenous ecological practices, allowing critical structural gaps to persist.',
-            description: 'No single organization has ever attempted to address the full system. Until now.',
-            proverb: 'No single organization has ever attempted to address the full system. — Until now.',
+            subtitle: 'The gap in current efforts',
+            description: '',
+            proverb: 'No single organization has ever attempted to address the full system. Until now.',
             stat1Value: '-23%',
             stat1Label: 'Decline in marine conservation funding since 2019',
             stat2Value: 'Isolated Silos',
             stat2Label: 'Organizations working in isolated silos',
             stat3Value: 'Cultural Gap',
             stat3Label: 'Detached from Native Hawaiian ecological knowledge',
-            card1Title: '1. Fragmentation',
-            card1Body: 'Environmental organizations work inside isolated silos, leaving massive, unaddressed gaps in the coastal ecosystem chain.',
-            card2Title: '2. Cultural Disconnect',
-            card2Body: 'Conservation programs lack integration with Native Hawaiian ecological knowledge and traditional practices.',
-            card3Title: '3. Funding Gap',
-            card3Body: 'Available marine conservation funding across the islands has suffered a severe 23% decline since 2019.',
+            card1Title: 'Fragmentation',
+            card1Body: 'Organizations work in silos, leaving critical gaps.',
+            card2Title: 'Cultural Disconnect',
+            card2Body: 'Programs lack Native Hawaiian ecological knowledge.',
+            card3Title: 'Funding Gap',
+            card3Body: 'Conservation funding declined 23% since 2019.',
             publishedAt: new Date(),
           },
           status: 'published',
+        });
+      }
+
+      // Force update existing records for Section 3 page content and subpage if they exist
+      const existingFragSub = await strapi.documents('api::crisis-sub-page.crisis-sub-page').findFirst({
+        filters: { slug: 'fragmented-response' }
+      });
+      if (existingFragSub) {
+        console.log('Ensuring Strapi subpage data is updated with exact section content...');
+        await strapi.documents('api::crisis-sub-page.crisis-sub-page').update({
+          documentId: existingFragSub.documentId,
+          data: {
+            eyebrow: 'A Fragmented Response',
+            title: 'Conservation in Hawaiʻi Is Fragmented, Underfunded, and Culturally Disconnected',
+            subtitle: 'The gap in current efforts',
+            description: '',
+            proverb: 'No single organization has ever attempted to address the full system. Until now.',
+            card1Title: 'Fragmentation',
+            card1Body: 'Organizations work in silos, leaving critical gaps.',
+            card2Title: 'Cultural Disconnect',
+            card2Body: 'Programs lack Native Hawaiian ecological knowledge.',
+            card3Title: 'Funding Gap',
+            card3Body: 'Conservation funding declined 23% since 2019.',
+          }
+        });
+      }
+
+      // Force update existing records for Our Work Sub Pages to match exact specifications
+      const habitatSub = await strapi.documents('api::our-work-sub-page.our-work-sub-page').findFirst({ filters: { slug: 'habitat-loko-ia' } });
+      if (habitatSub) {
+        console.log('Ensuring Strapi habitat-loko-ia subpage data is updated...');
+        await strapi.documents('api::our-work-sub-page.our-work-sub-page').update({
+          documentId: habitatSub.documentId,
+          data: {
+            eyebrow: 'Program 1',
+            title: 'We Don’t Just Restore Coral — We Restore the Entire Food Web',
+            description: 'Restoring estuarine habitats, coral reefs, and traditional fishponds (loko iʻa). Propagating thermal-tolerant coral and native limu using traditional cultivation and modern asexual propagation methods.',
+            card1Title: 'Keystone Focus',
+            card1Body: 'Restoring foundational habitats triggers a trophic cascade that revitalizes the entire coastal ecosystem.',
+            card2Title: 'Ahupuaʻa Link',
+            card2Body: 'Ancient Hawaiians built 300+ fishponds (loko iʻa) and managed freshwater flow to protect downstream coral nurseries. We revive this 1,000-year-old wisdom.',
+            metricLabel: 'Target Metric',
+            metricValue: 70,
+            metricSuffix: '%',
+            metricDesc: 'Coral Survival Rate',
+            metricDetail: '70% coral survival rate — target for pilot sites (integrating Indigenous Ecological Knowledge + modern marine science).',
+          }
+        });
+      }
+
+      const biocleanerSub = await strapi.documents('api::our-work-sub-page.our-work-sub-page').findFirst({ filters: { slug: 'bio-cleaner' } });
+      if (biocleanerSub) {
+        console.log('Ensuring Strapi bio-cleaner subpage data is updated...');
+        await strapi.documents('api::our-work-sub-page.our-work-sub-page').update({
+          documentId: biocleanerSub.documentId,
+          data: {
+            eyebrow: 'Program 2',
+            title: 'Bio Cleaner Septic Jockey: An Act of Mālama ʼAīna',
+            description: 'Deploying advanced Bio Cleaner septic systems to replace cesspools. Removing marine debris from Maui’s coastline. Responding to acute pollution events.',
+            card1Title: 'The Bigger Picture',
+            card1Body: 'Bio Cleaner Septic Jockey is the commercial arm that directly funds the nonprofit’s conservation mission while addressing the cesspool crisis at scale.',
+            metricLabel: 'Year 1 Target',
+            metricValue: 10,
+            metricSuffix: '+',
+            metricDesc: 'Tons of Debris Removed',
+            metricDetail: '10+ tons of marine debris removed.',
+          }
+        });
+      }
+
+      const communityscienceSub = await strapi.documents('api::our-work-sub-page.our-work-sub-page').findFirst({ filters: { slug: 'community-science' } });
+      if (communityscienceSub) {
+        console.log('Ensuring Strapi community-science subpage data is updated...');
+        await strapi.documents('api::our-work-sub-page.our-work-sub-page').update({
+          documentId: communityscienceSub.documentId,
+          data: {
+            eyebrow: 'Program 3',
+            title: 'Training Hawaiʻi’s Next Generation of Ocean Guardians',
+            description: 'Training local volunteers in fish surveys, limu monitoring, and water quality testing to produce publication-quality datasets.',
+            card1Title: 'Data Impact',
+            card1Body: 'Standardized community data collection informing state and federal policy. Publication-quality scientific output from volunteer-led monitoring.',
+            activity1Title: 'Fish surveys',
+            activity2Title: 'Limu monitoring',
+            activity3Title: 'Water quality testing',
+            activity4Title: 'Marine debris removal',
+            activity5Title: 'Coral outplanting',
+            activity6Title: 'Youth ocean science education',
+          }
+        });
+      }
+
+      const methodologySub = await strapi.documents('api::our-work-sub-page.our-work-sub-page').findFirst({ filters: { slug: 'methodology' } });
+      if (methodologySub) {
+        console.log('Ensuring Strapi methodology subpage data is updated...');
+        await strapi.documents('api::our-work-sub-page.our-work-sub-page').update({
+          documentId: methodologySub.documentId,
+          data: {
+            eyebrow: 'The science behind the work',
+            title: 'Indigenous Knowledge + Modern Science: The Most Effective Conservation',
+            description: 'The most resilient conservation integrates the deep observational knowledge of Indigenous Hawaiian practitioners with peer-reviewed marine biology.',
+            card1Title: 'The Ahupuaʻa Model',
+            card1Body: 'Traditional Hawaiian land system from mountain peak (mauka) to ocean (makai). Kānāwai — “the equal sharing of water” — was the source of all wealth. Hui Nehu makes this operational in the 21st century.',
+            activity1Title: '01 Coral & Limu Propagation',
+            activity1Body: 'traditional cultivation + modern asexual propagation',
+            activity2Title: '02 Ahupuaʻa & Loko Iʻa Management',
+            activity2Body: 'holistic watershed + ancestral fishpond revival',
+            activity3Title: '03 Citizen Science Rigor',
+            activity3Body: 'standardized community data → robust scientific datasets',
+            metricLabel: 'Core Metric',
+            metricValue: 70,
+            metricSuffix: '%',
+            metricDesc: 'Coral Survival Rate',
+            metricDetail: 'Targeting 70% coral survival rate at pilot sites — above national average.',
+          }
+        });
+      }
+
+      // Seed/Update Homepage
+      const homepage = await strapi.documents('api::homepage.homepage').findFirst();
+      if (!homepage) {
+        console.log('Seeding Homepage content...');
+        await strapi.documents('api::homepage.homepage').create({
+          data: {
+            heroSubtitle: 'Mālama ʼAīna. Mālama Wai. Mālama Kai. — Care for the Land. Care for the Water. Care for the Sea.',
+            heroTitle: 'Protecting Hawaiʻi’s Ocean, From the Ground Up',
+            heroDescription: 'A Maui-Based 501(c)(3) Marine Conservation Nonprofit — Est. 2023',
+            heroPrimaryBtnText: 'Join the Hui',
+            heroPrimaryBtnLink: '/get-involved',
+            heroSecondaryBtnText: 'Learn About the Crisis',
+            heroSecondaryBtnLink: '/the-crisis',
+            heroTertiaryBtnText: 'Invest in Hawaiʻi’s Ocean',
+            heroTertiaryBtnLink: '/get-involved#invest',
+            crisisLabel: 'The Hook (Urgency Block)',
+            crisisTitle: 'Hawaiʻi’s reefs are dying and the window to act is closing fast. 84% of the world’s coral reefs bleached this year. The nehu — Hawaiʻi’s tiny endemic anchovy — is the foundation of this entire food web. When it disappears, the whole system collapses.',
+            crisisBody: '53 million gallons of sewage enter Hawaiʻi’s ocean every single day — from 88,000 cesspools statewide. Most people have no idea.',
+            solutionLabel: 'Three Program Overview Cards',
+            solutionTitle: 'Hui Nehu is the first community-led, whole-system marine conservation organization in Hawaiʻi. We don’t just restore coral — we restore the entire food web. Our model is the ahupuaʻa made operational.',
+            solutionProg1Emoji: '🪸',
+            solutionProg1Title: 'Habitat & Loko Iʻa Restoration',
+            solutionProg1Body: 'Restoring estuarine habitats, coral reefs, and traditional fishponds. Propagating thermal-tolerant coral and native limu.',
+            solutionProg2Emoji: '🌊',
+            solutionProg2Title: 'Bio-Cleaner & Pollution Response',
+            solutionProg2Body: 'Deploying advanced septic systems. Removing marine debris. Target: 10+ tons in Year 1.',
+            solutionProg3Emoji: '🔬',
+            solutionProg3Title: 'Nā Kiaʻi Kai Community Science',
+            solutionProg3Body: 'Training local volunteers in fish surveys, limu monitoring, and water quality testing to produce publication-quality datasets.',
+            publishedAt: new Date(),
+          },
+          status: 'published',
+        });
+      } else {
+        console.log('Updating Homepage content...');
+        await strapi.documents('api::homepage.homepage').update({
+          documentId: homepage.documentId,
+          data: {
+            heroSubtitle: 'Mālama ʼAīna. Mālama Wai. Mālama Kai. — Care for the Land. Care for the Water. Care for the Sea.',
+            heroTitle: 'Protecting Hawaiʻi’s Ocean, From the Ground Up',
+            heroDescription: 'A Maui-Based 501(c)(3) Marine Conservation Nonprofit — Est. 2023',
+            heroPrimaryBtnText: 'Join the Hui',
+            heroPrimaryBtnLink: '/get-involved',
+            heroSecondaryBtnText: 'Learn About the Crisis',
+            heroSecondaryBtnLink: '/the-crisis',
+            heroTertiaryBtnText: 'Invest in Hawaiʻi’s Ocean',
+            heroTertiaryBtnLink: '/get-involved#invest',
+            crisisLabel: 'The Hook (Urgency Block)',
+            crisisTitle: 'Hawaiʻi’s reefs are dying and the window to act is closing fast. 84% of the world’s coral reefs bleached this year. The nehu — Hawaiʻi’s tiny endemic anchovy — is the foundation of this entire food web. When it disappears, the whole system collapses.',
+            crisisBody: '53 million gallons of sewage enter Hawaiʻi’s ocean every single day — from 88,000 cesspools statewide. Most people have no idea.',
+            solutionLabel: 'Three Program Overview Cards',
+            solutionTitle: 'Hui Nehu is the first community-led, whole-system marine conservation organization in Hawaiʻi. We don’t just restore coral — we restore the entire food web. Our model is the ahupuaʻa made operational.',
+            solutionProg1Emoji: '🪸',
+            solutionProg1Title: 'Habitat & Loko Iʻa Restoration',
+            solutionProg1Body: 'Restoring estuarine habitats, coral reefs, and traditional fishponds. Propagating thermal-tolerant coral and native limu.',
+            solutionProg2Emoji: '🌊',
+            solutionProg2Title: 'Bio-Cleaner & Pollution Response',
+            solutionProg2Body: 'Deploying advanced septic systems. Removing marine debris. Target: 10+ tons in Year 1.',
+            solutionProg3Emoji: '🔬',
+            solutionProg3Title: 'Nā Kiaʻi Kai Community Science',
+            solutionProg3Body: 'Training local volunteers in fish surveys, limu monitoring, and water quality testing to produce publication-quality datasets.',
+          }
         });
       }
     } catch (err) {

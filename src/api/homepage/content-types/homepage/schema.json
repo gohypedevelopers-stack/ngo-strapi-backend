@@ -33,6 +33,12 @@
     "heroSecondaryBtnLink": {
       "type": "string"
     },
+    "heroTertiaryBtnText": {
+      "type": "string"
+    },
+    "heroTertiaryBtnLink": {
+      "type": "string"
+    },
     "heroBannerImage": {
       "type": "media",
       "multiple": false,
