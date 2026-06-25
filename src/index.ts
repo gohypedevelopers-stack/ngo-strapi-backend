@@ -18,29 +18,74 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: any }) {
     try {
-      // Seed Our Work Page if empty
+      // Seed Our Work Page
       const ourWorkPage = await strapi.documents('api::our-work-page.our-work-page').findFirst();
+      const ourWorkPageDataToSeed = {
+        heroEyebrow: 'Our Core Philosophy',
+        heroTitle: "WE DON'T JUST RESTORE CORAL — WE RESTORE THE ENTIRE FOOD WEB.",
+        heroDescription: 'Hui Nehu implements three tightly integrated programs that directly target the full ecological chain, from mountain watersheds to the open sea.',
+        
+        prog1Eyebrow: 'We Don’t Just Restore Coral — We Restore the Entire Food Web',
+        prog1Title: 'Habitat & Loko Iʻa Restoration',
+        prog1Description: 'Restoring estuarine habitats, coral reefs, and traditional fishponds (loko iʻa). Propagating thermal-tolerant coral and native limu using traditional cultivation and modern asexual propagation methods.',
+        prog1Card1Title: 'Keystone Focus',
+        prog1Card1Body: 'Restoring foundational habitats triggers a trophic cascade that revitalizes the entire coastal ecosystem.',
+        prog1Card2Title: 'Ahupuaʻa Link',
+        prog1Card2Body: 'Ancient Hawaiians built 300+ fishponds (loko iʻa) and managed freshwater flow to protect downstream coral nurseries. We revive this 1,000-year-old wisdom.',
+        prog1MetricLabel: 'Target Metric',
+        prog1MetricValue: 70,
+        prog1MetricSuffix: '%',
+        prog1MetricDesc: 'Coral Survival Rate',
+        prog1MetricDetail: '70% coral survival rate — target for pilot sites (integrating Indigenous Ecological Knowledge + modern marine science).',
+
+        prog2Title: 'Bio Cleaner Septic Jockey: An Act of Mālama ʼAīna',
+        prog2Description: 'Deploying advanced Bio Cleaner septic systems to replace cesspools. Removing marine debris from Maui’s coastline. Responding to acute pollution events.',
+        prog2Card1Title: 'The Bigger Picture',
+        prog2Card1Body: 'Bio Cleaner Septic Jockey is the commercial arm that directly funds the nonprofit’s conservation mission while addressing the cesspool crisis at scale.',
+        prog2MetricLabel: 'Target Metric',
+        prog2MetricValue: 10,
+        prog2MetricSuffix: '+',
+        prog2MetricDesc: 'Tons of Debris Removed',
+        prog2MetricDetail: 'Year 1 Target — 10+ tons of marine debris removed.',
+
+        prog3Title: 'Training Hawaiʻi’s Next Generation of Ocean Guardians',
+        prog3Description: 'Training local volunteers in fish surveys, limu monitoring, and water quality testing to produce publication-quality datasets.',
+        prog3Card1Title: 'Data Impact',
+        prog3Card1Body: 'Standardized community data collection informing state and federal policy. Publication-quality scientific output from volunteer-led monitoring.',
+
+        methodTitle: 'Indigenous Knowledge + Modern Science: The Most Effective Conservation',
+        methodDescription: 'The most resilient conservation integrates the deep observational knowledge of Indigenous Hawaiian practitioners with peer-reviewed marine biology.',
+        methodCard1Title: 'The Ahupuaʻa Model',
+        methodCard1Body: 'Traditional Hawaiian land system from mountain peak (mauka) to ocean (makai). Kānāwai — “the equal sharing of water” — was the source of all wealth. Hui Nehu makes this operational in the 21st century.',
+        methodMetricLabel: 'Core Metric',
+        methodMetricValue: 70,
+        methodMetricSuffix: '%',
+        methodMetricDesc: 'Coral Survival Rate',
+        methodMetricDetail: 'Targeting 70% coral survival rate at pilot sites — above national average.',
+        methodPillar1Title: 'Coral & Limu Propagation',
+        methodPillar1Body: 'traditional cultivation + modern asexual propagation',
+        methodPillar2Title: 'Ahupuaʻa & Loko Iʻa Management',
+        methodPillar2Body: 'holistic watershed + ancestral fishpond revival',
+        methodPillar3Title: 'Citizen Science Rigor',
+        methodPillar3Body: 'standardized community data → robust scientific datasets',
+
+        status: 'published',
+      };
+
       if (!ourWorkPage) {
         console.log('Seeding Our Work Page content...');
         await strapi.documents('api::our-work-page.our-work-page').create({
           data: {
-            heroEyebrow: 'Our Core Philosophy',
-            heroTitle: "WE DON'T JUST RESTORE CORAL — WE RESTORE THE ENTIRE FOOD WEB.",
-            heroDescription: 'Hui Nehu implements three tightly integrated programs that directly target the full ecological chain, from mountain watersheds to the open sea.',
-            prog1Eyebrow: 'Program 1',
-            prog1Title: 'Habitat & Loko Iʻa Restoration',
-            prog1Description: 'Restoring estuarine habitats, coral reefs, and traditional fishponds (loko iʻa). Propagating thermal-tolerant coral and native limu using traditional cultivation and modern asexual propagation methods.',
-            prog2Eyebrow: 'Program 2',
-            prog2Title: 'Bio-Cleaner & Pollution Response',
-            prog2Description: 'Addressing localized pollution at the source by deploying advanced septic systems and removing 10+ tons of marine debris in Year 1.',
-            prog3Eyebrow: 'Program 3',
-            prog3Title: 'Nā Kiaʻi Kai Community Science',
-            prog3Description: 'Training local community volunteers to conduct professional fish surveys, monitor limu growth, and execute rigorous water quality testing.',
-            trophicTitle: 'The Trophic Cascade',
-            trophicDescription: 'Restoring foundational marine habitats creates a positive trophic cascade that naturally revitalizes the broader coastal ecosystem. By protecting the nehu at the base and removing toxic land runoff at the source, we trigger a self-reinforcing recovery wave for ahi, seabirds, coral, and communities.',
+            ...ourWorkPageDataToSeed,
             publishedAt: new Date(),
           },
           status: 'published',
+        });
+      } else {
+        console.log('Updating existing Our Work Page to explicitly populate new fields...');
+        await strapi.documents('api::our-work-page.our-work-page').update({
+          documentId: ourWorkPage.documentId,
+          data: ourWorkPageDataToSeed,
         });
       }
 
