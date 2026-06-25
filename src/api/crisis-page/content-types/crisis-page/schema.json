@@ -100,6 +100,33 @@
     },
     "sec3GridTitle": {
       "type": "string"
-    }
+    },
+    "sec1Card1Title": { "type": "string" },
+    "sec1Card1Body": { "type": "text" },
+    "sec1Card2Title": { "type": "string" },
+    "sec1Card2Body": { "type": "text" },
+    "sec1Card3Title": { "type": "string" },
+    "sec1Card3Body": { "type": "text" },
+    "sec1Card4Title": { "type": "string" },
+    "sec1Card4Body": { "type": "text" },
+    "sec1Proverb": { "type": "text" },
+    "sec2Card1Title": { "type": "string" },
+    "sec2Card1Body": { "type": "text" },
+    "sec2Card2Title": { "type": "string" },
+    "sec2Card2Body": { "type": "text" },
+    "sec2Card3Title": { "type": "string" },
+    "sec2Card3Body": { "type": "text" },
+    "sec2Card4Title": { "type": "string" },
+    "sec2Card4Body": { "type": "text" },
+    "sec2Card5Title": { "type": "string" },
+    "sec2Card5Body": { "type": "text" },
+    "sec2LawBannerBody": { "type": "text" },
+    "sec3Card1Title": { "type": "string" },
+    "sec3Card1Body": { "type": "text" },
+    "sec3Card2Title": { "type": "string" },
+    "sec3Card2Body": { "type": "text" },
+    "sec3Card3Title": { "type": "string" },
+    "sec3Card3Body": { "type": "text" },
+    "sec3Proverb": { "type": "text" }
   }
 }
