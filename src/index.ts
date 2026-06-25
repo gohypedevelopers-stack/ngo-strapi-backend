@@ -47,10 +47,6 @@ export default {
       // Seed Crisis Page if empty
       const crisisPage = await strapi.documents('api::crisis-page.crisis-page').findFirst();
       const crisisPageDataToSeed = {
-        eyebrow: 'Why Hui Nehu exists — 3 sub-pages',
-        title: 'The Crisis',
-        subtitle: 'Hawaiʻi’s nearshore ecosystems are facing a critical turning point, driven by three interconnected challenges.',
-        description: 'Explore the keystone role of the nehu, the devastating impact of the cesspool crisis, and the fragmentation of current conservation efforts.',
         
         sec1Eyebrow: 'Keystone species',
         sec1Title: 'The Nehu',
