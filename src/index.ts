@@ -21,10 +21,6 @@ export default {
       // Seed Our Work Page
       const ourWorkPage = await strapi.documents('api::our-work-page.our-work-page').findFirst();
       const ourWorkPageDataToSeed = {
-        heroEyebrow: 'Our Core Philosophy',
-        heroTitle: "WE DON'T JUST RESTORE CORAL — WE RESTORE THE ENTIRE FOOD WEB.",
-        heroDescription: 'Hui Nehu implements three tightly integrated programs that directly target the full ecological chain, from mountain watersheds to the open sea.',
-        
         prog1Eyebrow: 'We Don’t Just Restore Coral — We Restore the Entire Food Web',
         prog1Title: 'Habitat & Loko Iʻa Restoration',
         prog1Description: 'Restoring estuarine habitats, coral reefs, and traditional fishponds (loko iʻa). Propagating thermal-tolerant coral and native limu using traditional cultivation and modern asexual propagation methods.',

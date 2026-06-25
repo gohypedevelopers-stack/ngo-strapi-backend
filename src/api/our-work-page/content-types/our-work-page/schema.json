@@ -12,23 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "heroEyebrow": {
-      "type": "string"
-    },
-    "heroTitle": {
-      "type": "string"
-    },
-    "heroDescription": {
-      "type": "text"
-    },
-    "heroImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
+
     "prog1Eyebrow": {
       "type": "string"
     },
