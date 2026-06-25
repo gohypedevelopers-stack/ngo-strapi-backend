@@ -38,17 +38,11 @@
     "prog1Description": {
       "type": "text"
     },
-    "prog2Eyebrow": {
-      "type": "string"
-    },
     "prog2Title": {
       "type": "string"
     },
     "prog2Description": {
       "type": "text"
-    },
-    "prog3Eyebrow": {
-      "type": "string"
     },
     "prog3Title": {
       "type": "string"
@@ -56,11 +50,104 @@
     "prog3Description": {
       "type": "text"
     },
-    "trophicTitle": {
+    "prog1Card1Title": {
       "type": "string"
     },
-    "trophicDescription": {
+    "prog1Card1Body": {
       "type": "text"
+    },
+    "prog1Card2Title": {
+      "type": "string"
+    },
+    "prog1Card2Body": {
+      "type": "text"
+    },
+    "prog1MetricLabel": {
+      "type": "string"
+    },
+    "prog1MetricValue": {
+      "type": "integer"
+    },
+    "prog1MetricSuffix": {
+      "type": "string"
+    },
+    "prog1MetricDesc": {
+      "type": "string"
+    },
+    "prog1MetricDetail": {
+      "type": "text"
+    },
+    "prog2Card1Title": {
+      "type": "string"
+    },
+    "prog2Card1Body": {
+      "type": "text"
+    },
+    "prog2MetricLabel": {
+      "type": "string"
+    },
+    "prog2MetricValue": {
+      "type": "integer"
+    },
+    "prog2MetricSuffix": {
+      "type": "string"
+    },
+    "prog2MetricDesc": {
+      "type": "string"
+    },
+    "prog2MetricDetail": {
+      "type": "text"
+    },
+    "prog3Card1Title": {
+      "type": "string"
+    },
+    "prog3Card1Body": {
+      "type": "text"
+    },
+    "methodTitle": {
+      "type": "string"
+    },
+    "methodDescription": {
+      "type": "text"
+    },
+    "methodCard1Title": {
+      "type": "string"
+    },
+    "methodCard1Body": {
+      "type": "text"
+    },
+    "methodMetricLabel": {
+      "type": "string"
+    },
+    "methodMetricValue": {
+      "type": "integer"
+    },
+    "methodMetricSuffix": {
+      "type": "string"
+    },
+    "methodMetricDesc": {
+      "type": "string"
+    },
+    "methodMetricDetail": {
+      "type": "text"
+    },
+    "methodPillar1Title": {
+      "type": "string"
+    },
+    "methodPillar1Body": {
+      "type": "string"
+    },
+    "methodPillar2Title": {
+      "type": "string"
+    },
+    "methodPillar2Body": {
+      "type": "string"
+    },
+    "methodPillar3Title": {
+      "type": "string"
+    },
+    "methodPillar3Body": {
+      "type": "string"
     }
   }
 }

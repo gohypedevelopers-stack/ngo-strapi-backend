@@ -91,6 +91,15 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "sec1GridTitle": {
+      "type": "string"
+    },
+    "sec2GridTitle": {
+      "type": "string"
+    },
+    "sec3GridTitle": {
+      "type": "string"
     }
   }
 }
