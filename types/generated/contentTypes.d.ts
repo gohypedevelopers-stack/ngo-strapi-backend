@@ -492,9 +492,6 @@ export interface ApiCrisisPageCrisisPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    eyebrow: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -502,23 +499,51 @@ export interface ApiCrisisPageCrisisPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    sec1Card1Body: Schema.Attribute.Text;
+    sec1Card1Title: Schema.Attribute.String;
+    sec1Card2Body: Schema.Attribute.Text;
+    sec1Card2Title: Schema.Attribute.String;
+    sec1Card3Body: Schema.Attribute.Text;
+    sec1Card3Title: Schema.Attribute.String;
+    sec1Card4Body: Schema.Attribute.Text;
+    sec1Card4Title: Schema.Attribute.String;
     sec1Description: Schema.Attribute.Text;
     sec1Eyebrow: Schema.Attribute.String;
+    sec1GridTitle: Schema.Attribute.String;
     sec1Image: Schema.Attribute.Media<'images'>;
+    sec1Proverb: Schema.Attribute.Text;
     sec1Subtitle: Schema.Attribute.String;
     sec1Title: Schema.Attribute.String;
+    sec2Card1Body: Schema.Attribute.Text;
+    sec2Card1Title: Schema.Attribute.String;
+    sec2Card2Body: Schema.Attribute.Text;
+    sec2Card2Title: Schema.Attribute.String;
+    sec2Card3Body: Schema.Attribute.Text;
+    sec2Card3Title: Schema.Attribute.String;
+    sec2Card4Body: Schema.Attribute.Text;
+    sec2Card4Title: Schema.Attribute.String;
+    sec2Card5Body: Schema.Attribute.Text;
+    sec2Card5Title: Schema.Attribute.String;
     sec2Description: Schema.Attribute.Text;
     sec2Eyebrow: Schema.Attribute.String;
+    sec2GridTitle: Schema.Attribute.String;
     sec2Image: Schema.Attribute.Media<'images'>;
+    sec2LawBannerBody: Schema.Attribute.Text;
     sec2Subtitle: Schema.Attribute.String;
     sec2Title: Schema.Attribute.String;
+    sec3Card1Body: Schema.Attribute.Text;
+    sec3Card1Title: Schema.Attribute.String;
+    sec3Card2Body: Schema.Attribute.Text;
+    sec3Card2Title: Schema.Attribute.String;
+    sec3Card3Body: Schema.Attribute.Text;
+    sec3Card3Title: Schema.Attribute.String;
     sec3Description: Schema.Attribute.Text;
     sec3Eyebrow: Schema.Attribute.String;
+    sec3GridTitle: Schema.Attribute.String;
     sec3Image: Schema.Attribute.Media<'images'>;
+    sec3Proverb: Schema.Attribute.Text;
     sec3Subtitle: Schema.Attribute.String;
     sec3Title: Schema.Attribute.String;
-    subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -609,18 +634,47 @@ export interface ApiOurWorkPageOurWorkPage extends Struct.SingleTypeSchema {
       'api::our-work-page.our-work-page'
     > &
       Schema.Attribute.Private;
+    methodCard1Body: Schema.Attribute.Text;
+    methodCard1Title: Schema.Attribute.String;
+    methodDescription: Schema.Attribute.Text;
+    methodMetricDesc: Schema.Attribute.String;
+    methodMetricDetail: Schema.Attribute.Text;
+    methodMetricLabel: Schema.Attribute.String;
+    methodMetricSuffix: Schema.Attribute.String;
+    methodMetricValue: Schema.Attribute.Integer;
+    methodPillar1Body: Schema.Attribute.String;
+    methodPillar1Title: Schema.Attribute.String;
+    methodPillar2Body: Schema.Attribute.String;
+    methodPillar2Title: Schema.Attribute.String;
+    methodPillar3Body: Schema.Attribute.String;
+    methodPillar3Title: Schema.Attribute.String;
+    methodTitle: Schema.Attribute.String;
+    prog1Card1Body: Schema.Attribute.Text;
+    prog1Card1Title: Schema.Attribute.String;
+    prog1Card2Body: Schema.Attribute.Text;
+    prog1Card2Title: Schema.Attribute.String;
     prog1Description: Schema.Attribute.Text;
     prog1Eyebrow: Schema.Attribute.String;
+    prog1MetricDesc: Schema.Attribute.String;
+    prog1MetricDetail: Schema.Attribute.Text;
+    prog1MetricLabel: Schema.Attribute.String;
+    prog1MetricSuffix: Schema.Attribute.String;
+    prog1MetricValue: Schema.Attribute.Integer;
     prog1Title: Schema.Attribute.String;
+    prog2Card1Body: Schema.Attribute.Text;
+    prog2Card1Title: Schema.Attribute.String;
     prog2Description: Schema.Attribute.Text;
-    prog2Eyebrow: Schema.Attribute.String;
+    prog2MetricDesc: Schema.Attribute.String;
+    prog2MetricDetail: Schema.Attribute.Text;
+    prog2MetricLabel: Schema.Attribute.String;
+    prog2MetricSuffix: Schema.Attribute.String;
+    prog2MetricValue: Schema.Attribute.Integer;
     prog2Title: Schema.Attribute.String;
+    prog3Card1Body: Schema.Attribute.Text;
+    prog3Card1Title: Schema.Attribute.String;
     prog3Description: Schema.Attribute.Text;
-    prog3Eyebrow: Schema.Attribute.String;
     prog3Title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    trophicDescription: Schema.Attribute.Text;
-    trophicTitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
