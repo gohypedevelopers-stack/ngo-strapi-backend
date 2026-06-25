@@ -637,6 +637,7 @@ export interface ApiOurWorkPageOurWorkPage extends Struct.SingleTypeSchema {
     methodCard1Body: Schema.Attribute.Text;
     methodCard1Title: Schema.Attribute.String;
     methodDescription: Schema.Attribute.Text;
+    methodImage: Schema.Attribute.Media<'images'>;
     methodMetricDesc: Schema.Attribute.String;
     methodMetricDetail: Schema.Attribute.Text;
     methodMetricLabel: Schema.Attribute.String;
@@ -655,6 +656,8 @@ export interface ApiOurWorkPageOurWorkPage extends Struct.SingleTypeSchema {
     prog1Card2Title: Schema.Attribute.String;
     prog1Description: Schema.Attribute.Text;
     prog1Eyebrow: Schema.Attribute.String;
+    prog1Image: Schema.Attribute.Media<'images'>;
+    prog1MetricBg: Schema.Attribute.Media<'images'>;
     prog1MetricDesc: Schema.Attribute.String;
     prog1MetricDetail: Schema.Attribute.Text;
     prog1MetricLabel: Schema.Attribute.String;
@@ -664,6 +667,7 @@ export interface ApiOurWorkPageOurWorkPage extends Struct.SingleTypeSchema {
     prog2Card1Body: Schema.Attribute.Text;
     prog2Card1Title: Schema.Attribute.String;
     prog2Description: Schema.Attribute.Text;
+    prog2Image: Schema.Attribute.Media<'images'>;
     prog2MetricDesc: Schema.Attribute.String;
     prog2MetricDetail: Schema.Attribute.Text;
     prog2MetricLabel: Schema.Attribute.String;
@@ -673,6 +677,7 @@ export interface ApiOurWorkPageOurWorkPage extends Struct.SingleTypeSchema {
     prog3Card1Body: Schema.Attribute.Text;
     prog3Card1Title: Schema.Attribute.String;
     prog3Description: Schema.Attribute.Text;
+    prog3Image: Schema.Attribute.Media<'images'>;
     prog3Title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
