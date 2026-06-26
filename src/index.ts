@@ -286,7 +286,81 @@ export default {
         });
       }
 
+      // Seed Get Involved Page
+      const getInvolvedPage = await strapi.documents('api::get-involved-page.get-involved-page').findFirst();
+      const getInvolvedPageDataToSeed = {
+        investEyebrow: 'Invest · Funding tiers',
+        investTitle: 'Join the Hui — Your Investment Directly Protects Hawaiʻi’s Ocean',
+        investDescPrefix: 'Raising ',
+        investDescBold: '$500,000',
+        investDescSuffix: ' in seed funding to launch nonprofit conservation programs and the Bio Cleaner Septic Jockey commercial enterprise.',
+        seedFundsTitle: 'Use of Seed Funds',
+        fundUse1Label: 'Coral Restoration', fundUse1Amount: '$200K', fundUse1Percent: 40, fundUse1Color: 'bg-teal-650',
+        fundUse2Label: 'Community Science', fundUse2Amount: '$150K', fundUse2Percent: 30, fundUse2Color: 'bg-teal-500',
+        fundUse3Label: 'Youth Education', fundUse3Amount: '$100K', fundUse3Percent: 20, fundUse3Color: 'bg-teal-350',
+        fundUse4Label: 'Operations', fundUse4Amount: '$50K', fundUse4Percent: 10, fundUse4Color: 'bg-slate-500',
+        investTiersTitle: 'Investment Tiers',
+        tier1Name: 'Koʻa Honu Founding Partner', tier1Amount: '$100K+', tier1Desc: 'Full year coral nursery operations.',
+        tier2Name: 'Conservation Partner', tier2Amount: '$50K', tier2Desc: 'Full year debris removal, one island.',
+        tier3Name: 'Mano Science Partner', tier3Amount: '$25K', tier3Desc: 'Community monitoring at 3 sites.',
+        tier4Name: 'Nehu Community Partner', tier4Amount: '$10K', tier4Desc: 'Youth ocean science, one school year.',
+        tier5Name: 'ʻOhana Supporter', tier5Amount: '$1K+', tier5Desc: 'Foundational community support.',
+
+        volEyebrow: 'Volunteer · Community workdays',
+        volTitle: 'Join a Community Workday. Become a Kiaʻi Kai.',
+        volDescription: 'Volunteers are the backbone of the Nā Kiaʻi Kai Community Science program. From beach cleanups to fish surveys to coral outplanting, there is a role for every skill level.',
+        volActivity1: 'Fish & limu surveys',
+        volActivity2: 'Water quality testing',
+        volActivity3: 'Marine debris removal',
+        volActivity4: 'Coral outplanting',
+        volActivity5: 'Youth education support',
+        volActivity6: 'Community workdays',
+        volCtaTitle1: 'Ready to ',
+        volCtaTitleHighlight: 'Mālama',
+        volCtaTitle2: ' the Coastline?',
+        volCtaDesc: 'Register to secure a spot for our next community workday on Maui. We supply the gear, training, lunch, and reef-safe sunscreen.',
+        volCtaBtnText: 'Sign up for the next community workday',
+        volCtaBtnLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfB2e7x837p1vC0Q9G4-9vWJ156',
+
+        partnerEyebrow: 'Partner With Us · Org & institutional partners',
+        partnerTitle: 'Scale Your Impact. Join the Coalition.',
+        partnerWhoTitle: 'Who This Is For',
+        partnerWho1: 'Grassroots conservation orgs',
+        partnerWho2: 'Research institutions',
+        partnerWho3: 'Government agencies',
+        partnerWho4: 'Corporations seeking meaningful environmental partnerships',
+        partnerOffersTitle: 'What Partnership Offers',
+        partnerOffer1: 'Data sharing + co-publication',
+        partnerOffer2: 'Joint grant applications',
+        partnerOffer3: 'Bio Cleaner technology access',
+        partnerOffer4: 'Coalition representation in state policy advocacy',
+        partnerContactTitle: 'Get in Touch',
+        partnerEmail: 'partnerships@huinehu.org',
+        partnerPhone: '(808) 555-NEHU',
+        partnerIg: '@HuiNehu',
+
+        status: 'published'
+      };
+
+      if (!getInvolvedPage) {
+        console.log('Seeding Get Involved Page content...');
+        await strapi.documents('api::get-involved-page.get-involved-page').create({
+          data: {
+            ...getInvolvedPageDataToSeed,
+            publishedAt: new Date(),
+          },
+          status: 'published',
+        });
+      } else {
+        console.log('Updating existing Get Involved Page...');
+        await strapi.documents('api::get-involved-page.get-involved-page').update({
+          documentId: getInvolvedPage.documentId,
+          data: getInvolvedPageDataToSeed,
+        });
+      }
+
     } catch (err) {
+      console.error('Error seeding Strapi database:', err);
     }
   },
 };
