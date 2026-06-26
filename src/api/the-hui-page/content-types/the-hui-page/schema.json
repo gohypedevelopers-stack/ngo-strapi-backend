@@ -1,0 +1,66 @@
+{
+  "kind": "singleType",
+  "collectionName": "the_hui_pages",
+  "info": {
+    "singularName": "the-hui-page",
+    "pluralName": "the-hui-pages",
+    "displayName": "The Hui Page",
+    "description": "Content for the The Hui page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "storyEyebrow": { "type": "string" },
+    "storyTitle": { "type": "string" },
+    "storyProverb": { "type": "text" },
+    "storyImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "storyCard1Title": { "type": "string" },
+    "storyCard1Body": { "type": "text" },
+    "storyCard2Title": { "type": "string" },
+    "storyCard2Body": { "type": "text" },
+    "storyCard3Title": { "type": "string" },
+    "storyCard3Body": { "type": "text" },
+    
+    "teamEyebrow": { "type": "string" },
+    "teamTitle": { "type": "string" },
+    "teamDescription": { "type": "text" },
+    "leader1Name": { "type": "string" },
+    "leader1Role": { "type": "string" },
+    "leader1Desc": { "type": "string" },
+    "leader2Name": { "type": "string" },
+    "leader2Role": { "type": "string" },
+    "leader2Desc": { "type": "string" },
+    "openRole1Title": { "type": "string" },
+    "openRole1Desc": { "type": "string" },
+    "openRole2Title": { "type": "string" },
+    "openRole2Desc": { "type": "string" },
+    "openRoleNote": { "type": "text" },
+    "advisor1": { "type": "string" },
+    "advisor2": { "type": "string" },
+    "advisor3": { "type": "string" },
+    "advisor4": { "type": "string" },
+
+    "partnersEyebrow": { "type": "string" },
+    "partnersTitle": { "type": "string" },
+    "partnersDescription": { "type": "text" },
+    "partnerMode1Title": { "type": "string" },
+    "partnerMode1Desc": { "type": "text" },
+    "partnerMode2Title": { "type": "string" },
+    "partnerMode2Desc": { "type": "text" },
+    "partnerMode3Title": { "type": "string" },
+    "partnerMode3Desc": { "type": "text" },
+    "targetPartner1": { "type": "string" },
+    "targetPartner2": { "type": "string" },
+    "targetPartner3": { "type": "string" },
+    "targetPartner4": { "type": "string" },
+    "targetPartner5": { "type": "string" },
+    "targetPartner6": { "type": "string" }
+  }
+}

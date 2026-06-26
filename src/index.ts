@@ -218,8 +218,75 @@ export default {
           }
         });
       }
+      // Seed The Hui Page
+      const theHuiPage = await strapi.documents('api::the-hui-page.the-hui-page').findFirst();
+      const theHuiPageDataToSeed = {
+        storyEyebrow: 'Our Story · Origin & vision',
+        storyTitle: 'Ancient Wisdom for a Modern Crisis',
+        storyProverb: '“He aliʻi ka ʼaina, he kauwā ke kanaka.” — The land is chief; the people are its servants.',
+        storyCard1Title: 'Who We Are',
+        storyCard1Body: 'A Maui-based 501(c)(3) marine conservation nonprofit, established 2023. The first community-led, whole-system marine conservation organization in Hawaiʻi.',
+        storyCard2Title: 'Name Meaning',
+        storyCard2Body: 'Hui Nehu means “The Community of the Anchovy.” We believe true restoration starts at the very foundation of the food chain.',
+        storyCard3Title: 'Our Model',
+        storyCard3Body: 'The ahupuaʻa made operational — organizing conservation work from land-based pollution sources to offshore nurseries, addressing issues at source not just symptoms in the ocean.',
+
+        teamEyebrow: 'Team & Leadership · The people',
+        teamTitle: 'Led by Hawaiʻi’s Most Credible Ocean Stewards',
+        teamDescription: 'A team combining Indigenous Hawaiian cultural authority, peer-reviewed marine science, and operational expertise.',
+        leader1Name: 'James J.K. Carpio',
+        leader1Role: 'Executive Director & President',
+        leader1Desc: 'Indigenous Hawaiian natural resource practitioner',
+        leader2Name: 'Dr. Nakoa Goo',
+        leader2Role: 'Chief Science Officer & Vice President',
+        leader2Desc: 'PhD in Marine Ecology, University of Hawaiʻi',
+        openRole1Title: 'Director of Community Engagement',
+        openRole1Desc: 'education programs + community workdays',
+        openRole2Title: 'Director of Operations / Managing Director',
+        openRole2Desc: 'commercial operations + fleet management',
+        openRoleNote: 'Two leadership roles still have placeholder names — fill before website launch.',
+        advisor1: 'DLNR Division of Aquatic Resources',
+        advisor2: 'University of Hawaiʻi',
+        advisor3: 'Maui County',
+        advisor4: 'Traditional Hawaiian fishing communities',
+
+        partnersEyebrow: 'Partners & Coalition · Coalition & partnerships',
+        partnersTitle: 'A Collaborative Catalyst, Not a Competitor',
+        partnersDescription: 'Coalition anchor — supporting, empowering, and partnering with existing grassroots organizations to accelerate marine conservation across Hawaiʻi. We do not operate in silos.',
+        partnerMode1Title: 'Resource & Technology Sharing',
+        partnerMode1Desc: 'Technical expertise, marine science data, Bio Cleaner septic access',
+        partnerMode2Title: 'Joint Advocacy',
+        partnerMode2Desc: 'Unified coalition for state environmental policy + federal grants',
+        partnerMode3Title: 'Capacity Building',
+        partnerMode3Desc: 'Admin support + scientific validation for volunteer-led ahupuaʻa projects',
+        targetPartner1: 'Hawaiʻi Community Foundation',
+        targetPartner2: 'National Fish and Wildlife Foundation',
+        targetPartner3: 'NOAA Pacific Islands Region',
+        targetPartner4: 'DLNR Division of Aquatic Resources',
+        targetPartner5: 'University of Hawaiʻi Marine Programs',
+        targetPartner6: '1% for the Planet',
+        
+        status: 'published'
+      };
+
+      if (!theHuiPage) {
+        console.log('Seeding The Hui Page content...');
+        await strapi.documents('api::the-hui-page.the-hui-page').create({
+          data: {
+            ...theHuiPageDataToSeed,
+            publishedAt: new Date(),
+          },
+          status: 'published',
+        });
+      } else {
+        console.log('Updating existing The Hui Page...');
+        await strapi.documents('api::the-hui-page.the-hui-page').update({
+          documentId: theHuiPage.documentId,
+          data: theHuiPageDataToSeed,
+        });
+      }
+
     } catch (err) {
-      console.error('Error seeding Strapi database:', err);
     }
   },
 };
